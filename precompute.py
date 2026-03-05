@@ -34,4 +34,4 @@ for tier_index in range(len(tiers)):
             "str_range": str_range
         }
 
-np.savez("precomputed_heatmaps.npz", data=all_maps)
+np.savez_compressed("precomputed_heatmaps.npz", data=all_maps)
