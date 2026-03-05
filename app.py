@@ -13,12 +13,8 @@ else:
     max_stars = 10
 stars = st.slider("Stars", 0, max_stars, 0)
 
-@st.cache_data
-def load_data():
-    data = np.load("precomputed_heatmaps.npz", allow_pickle=True)
-    return data["data"].item()
-
-all_heatmaps = load_data()
+data = np.load("precomputed_heatmaps.npz", allow_pickle=True)
+all_heatmaps = data["data"].item()
 
 heatmap_fraction, cd_range, str_range = all_heatmaps[(tier, stars)]
 
