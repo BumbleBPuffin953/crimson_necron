@@ -16,7 +16,10 @@ stars = st.slider("Stars", 0, max_stars, 0)
 data = np.load("precomputed_heatmaps.npz", allow_pickle=True)
 all_heatmaps = data["data"].item()
 
-heatmap_fraction, cd_range, str_range = all_heatmaps[(tier, stars)]
+entry = all_heatmaps[(tier, stars)]
+heatmap_fraction = entry["heatmap"]
+cd_range = entry["cd_range"]
+str_range = entry["str_range"]
 
 fig, ax = plt.subplots(figsize=(10,8))
 cmap = plt.cm.viridis.copy()
